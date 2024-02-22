@@ -2,6 +2,7 @@ apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
   name: <your-pdb-name>
+  namespace: <your-name-space>
 spec:
   minAvailable: 1 # or use percentage like "50%"
   selector:
