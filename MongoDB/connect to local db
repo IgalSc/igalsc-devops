@@ -1,0 +1,9 @@
+# On the instance running MongoDB, open terminal
+mongo
+# in the MongoDB shell see what databases you have
+show dbs
+# to see what collections (tables) you have
+use <database_name>
+show collections
+# to backup local MongoDB, in the OS shell 
+mongodump --db {$db_name} --out /Backups/$(date +'%m-%d-%y')
