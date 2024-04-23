@@ -1,2 +1,0 @@
-# scale node group
-eksctl scale nodegroup --cluster=eks-prod-internal --nodes=3 --name=nodes-2a --nodes-min=1  --nodes-max=3  --wait
