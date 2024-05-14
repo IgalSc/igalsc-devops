@@ -1,0 +1,19 @@
+# get addons
+
+eksctl get addons --cluster <cluster-name>
+
+# Discovering addons
+
+eksctl utils describe-addon-versions --cluster <cluster-name>
+
+# Deleting addons
+
+eksctl delete addon --cluster <cluster-name> --name <addon-name>
+
+# Default add-on updates
+
+eksctl utils update-kube-proxy --cluster=<clusterName>
+
+eksctl utils update-aws-node --cluster=<clusterName>
+
+eksctl utils update-coredns --cluster=<clusterName>

@@ -1,0 +1,6 @@
+aws s3api restore-object \
+--bucket {$bucket_name} \
+--key {$file_name} \
+--restore-request 'Days=2,GlacierJobParameters={Tier=Standard}' \
+--profile {$AWS_profile} \
+--region {$AWS_region}
