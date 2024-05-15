@@ -1,0 +1,13 @@
+management:
+  endpoint:
+    health:
+      show-details: always
+
+spring:
+  profiles: dev
+elasticSearch:
+  host: "aws-dev-url"
+  port: -1
+  scheme: https
+  rest:
+  uris: ["aws-dev-url"]
