@@ -1,0 +1,40 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"aws-portal:*Billing",
+				"aws-portal:*Usage",
+				"aws-portal:*PaymentMethods",
+				"aws-portal:*Account",
+				"budgets:ViewBudget",
+				"budgets:ModifyBudget",
+				"ce:GetCostForecast",
+				"ce:GetCostAndUsage",
+				"ce:GetPreferences",
+				"ce:UpdatePreferences",
+				"ce:CreateReport",
+				"ce:UpdateReport",
+				"ce:DescribeReport",
+				"ce:DeleteReport",
+				"ce:CreateNotificationSubscription",
+				"ce:UpdateNotificationSubscription",
+				"ce:DeleteNotificationSubscription",
+				"ce:*CostCategoryDefinition",
+				"ce:ListTagsForResource",
+				"ce:*AnomalyMonitor",
+				"ce:*AnomalySubscription",
+				"ce:GetAnomalies",
+				"ce:TagResource",
+				"ce:UntagResource",
+				"cur:DescribeReportDefinitions",
+				"cur:PutReportDefinition",
+				"cur:ModifyReportDefinition",
+				"cur:DeleteReportDefinition",
+				"purchase-orders:*PurchaseOrders"
+			],
+			"Resource": "*"
+		}
+	]
+}
