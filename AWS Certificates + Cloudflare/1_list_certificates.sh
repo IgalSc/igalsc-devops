@@ -9,7 +9,11 @@ profile="your-profile"
 output_file="certificates.txt"
 
 # List certificates
-certs=$(aws acm list-certificates --region $region --profile $profile --query 'CertificateSummaryList[].[CertificateArn]' --output text)
+certs=$(aws acm list-certificates \
+          --region $region \
+          --profile $profile \
+          --query 'CertificateSummaryList[].[CertificateArn]' \
+          --output text)
 
 # Redirect output to a file
 echo "ARN,Domain Name,SANs" > $output_file
@@ -17,7 +21,10 @@ echo "ARN,Domain Name,SANs" > $output_file
 # Iterate over each certificate
 for arn in $certs; do
   # Get certificate details
-  cert_details=$(aws acm describe-certificate --region $region --profile $profile --certificate-arn $arn)
+  cert_details=$(aws acm describe-certificate \
+                  --region $region \
+                  --profile $profile \
+                  --certificate-arn $arn)
 
   # Extract domain name
   domain_name=$(echo $cert_details | jq -r '.Certificate.DomainName')
