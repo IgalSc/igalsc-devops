@@ -1,21 +1,51 @@
 # Create node group
 
-eksctl create nodegroup --cluster {$cluster-name} --name nodes-1c --node-type m5a.xlarge --nodes 1 --nodes-min 1 --nodes-max 4 --managed=true --ssh-access --ssh-public-key {$keyname}
+eksctl create nodegroup \
+    --cluster {$cluster-name} \
+    --name nodes-1c \
+    --node-type m5a.xlarge \
+    --nodes 1 \
+    --nodes-min 1 \
+    --nodes-max 4 \
+    --managed=true \
+    --ssh-access \
+    --ssh-public-key {$keyname}
 
 # Delete node group
 
-eksctl delete nodegroup --cluster {$cluster-name} --name nodes-1b
+eksctl delete nodegroup \
+    --cluster {$cluster-name} \
+    --name nodes-1b
 
 # Update SSH access to the cluster
 
-awscliv2 eks update-cluster-config --name {$cluster-name} --resources-vpc-config endpointPublicAccess=true,publicAccessCidrs=ip-address/32
+awscliv2 eks update-cluster-config \
+    --name {$cluster-name} \
+    --resources-vpc-config endpointPublicAccess=true,publicAccessCidrs=ip-address/32
 
 # Scale the NodeGroup
 
-eksctl scale nodegroup --cluster={$cluster-name} --nodes=1 --name=nodes-1a --nodes-min=1 --nodes-max=5 --wait
-eksctl scale nodegroup --cluster={$cluster-name} --nodes=3 --name=*nodes-2a --nodes-min=1 --nodes-max=3 --wait
+eksctl scale nodegroup \
+    --cluster={$cluster-name} \
+    --nodes=1 \
+    --name=nodes-1a \
+    --nodes-min=1 \
+    --nodes-max=5 \
+    --wait
+eksctl scale nodegroup \
+    --cluster={$cluster-name} \
+    --nodes=3 \
+    --name=*nodes-2a \
+    --nodes-min=1 \
+    --nodes-max=3 \
+    --wait
 
 # Upgrade NodeGroup
 
-eksctl upgrade nodegroup --name=nodes-1b --cluster={$cluster-name} --region=us-east-1
-awscliv2 eks update-cluster-config --name {$cluster-name} --resources-vpc-config endpointPublicAccess=true,publicAccessCidrs=ip-address/32
+eksctl upgrade nodegroup \
+    --name=nodes-1b \
+    --cluster={$cluster-name} \
+    --region=us-east-1
+awscliv2 eks update-cluster-config \
+    --name {$cluster-name} \
+    --resources-vpc-config endpointPublicAccess=true,publicAccessCidrs=ip-address/32
