@@ -1,0 +1,64 @@
+1. Copy AMIs
+In Account A1:
+
+aws ec2 modify-image-attribute --image-id <AMI-ID> --attribute launchPermission --operation-type add --user-ids <Account-ID-B2>
+In Account B2:
+
+aws ec2 copy-image --source-image-id <AMI-ID> --source-region <region> --region <region> --name <New-AMI-Name>
+2. Migrate Launch Templates
+In Account A1:
+
+aws ec2 describe-launch-templates > launch-templates.json
+In Account B2:
+
+Modify the JSON as needed (e.g., AMI IDs, security groups, key pairs).
+
+aws ec2 create-launch-template --cli-input-json file://launch-templates.json
+3. Migrate Auto Scaling Groups
+In Account A1:
+
+aws autoscaling describe-auto-scaling-groups > asg.json
+In Account B2:
+
+Modify the JSON as needed.
+
+aws autoscaling create-auto-scaling-group --cli-input-json file://asg.json
+4. Migrate Target Groups and Load Balancers
+In Account A1:
+
+aws elbv2 describe-target-groups > target-groups.json
+aws elbv2 describe-load-balancers > load-balancers.json
+aws elbv2 describe-listeners > listeners.json
+In Account B2:
+
+Modify the JSON files as needed.
+
+aws elbv2 create-target-group --cli-input-json file://target-groups.json
+aws elbv2 create-load-balancer --cli-input-json file://load-balancers.json
+aws elbv2 create-listener --cli-input-json file://listeners.json
+5. Migrate Certificates
+In Account A1:
+
+aws acm export-certificate --certificate-arn <Certificate-ARN> --passphrase <Passphrase> > certificate.json
+In Account B2:
+
+aws acm import-certificate --certificate fileb://certificate.json --private-key fileb://private-key.pem --certificate-chain fileb://certificate-chain.pem
+6. Migrate Listener Rules
+In Account A1:
+
+aws elbv2 describe-rules --listener-arn <Listener-ARN> > listener-rules.json
+In Account B2:
+
+Modify the JSON as needed.
+
+aws elbv2 create-rule --cli-input-json file://listener-rules.json
+
+
+
+
+
+
+curl -Lo terraform-provider-aws.zip https://releases.hashicorp.com/terraform-provider-aws/5.50.0/terraform-provider-aws_5.50.0_darwin_amd64.zip
+unzip terraform-provider-aws.zip
+chmod +x terraform-provider-aws
+mv terraform-provider-aws ~/.terraform.d/plugins/darwin_amd64/
