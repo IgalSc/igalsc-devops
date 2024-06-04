@@ -12,4 +12,3 @@ scp -i $rsa_key $user@$server_ip:$remote_path/file_name $local_path
 scp -i $rsa_key $user@$server_ip:$remote_path/* $local_path
 
 
-
