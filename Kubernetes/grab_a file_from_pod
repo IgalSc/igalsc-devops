@@ -1,1 +1,18 @@
+# !!!Important Note!!!
+# Requires that the 'tar' binary is present in your container
+# image.  If 'tar' is not present, 'kubectl cp' will fail.
+
+# Copy from local directory to  a remote pod 
+kubectl -n <namespace> cp ./filename <pod_name>:/tmp/filename 
+
+# Copy from local directory to  a remote pod  in a specific container
+kubectl -n <namespace> cp ./filename <pod_name>:/tmp/filename -c <specific-container>
+
+# Copy  from a remote pod to locally
 kubectl -n <namespace> cp <pod_name>:/tmp/filename ./filename
+
+Options:
+-c, --container='': Container name. If omitted, the first container in the pod will be chosen
+
+Usage:
+kubectl cp <file-spec-src> <file-spec-dest> [options]
