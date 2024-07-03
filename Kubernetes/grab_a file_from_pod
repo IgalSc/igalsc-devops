@@ -1,0 +1,1 @@
+kubectl -n <namespace> cp <pod_name>:/tmp/filename ./filename
