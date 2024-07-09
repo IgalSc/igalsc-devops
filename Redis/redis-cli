@@ -1,0 +1,11 @@
+hostname='<hostname_here>'
+#get info regarding the DB
+redis-cli -h $hostname info
+
+#get the keys without the expiration
+redis-cli -h $hostname --scan | while read -r LINE; do 
+  TTL=$(redis-cli -h $hostname ttl "$LINE"); 
+  if [ "$TTL" -eq -1 ]; then 
+    echo "$LINE"; 
+  fi; 
+done
