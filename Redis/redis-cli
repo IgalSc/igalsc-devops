@@ -9,3 +9,5 @@ redis-cli -h $hostname --scan | while read -r LINE; do
     echo "$LINE"; 
   fi; 
 done
+
+
