@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: cronjob-manager
+  namespace: prod  # Change to your namespace
+rules:
+- apiGroups: ["batch"]
+  resources: ["cronjobs"]
+  verbs: ["get", "create"]
+- apiGroups: ["batch"]
+  resources: ["jobs"]
+  verbs: ["create"]

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: check-cronjob-script
+data:
+  check_and_trigger_cronjob.sh: |
+    #!/bin/bash
+
+    NAMESPACE="default"  # Change to your namespace
+    TARGET_CRONJOB="target-cronjob-name"  # Change to your target CronJob name
+
+    # Get the status of the target CronJob
+    status=$(kubectl get cronjob $TARGET_CRONJOB -n $NAMESPACE -o jsonpath='{.status.active}')
+
+    if [ -z "$status" ]; then
+      echo "CronJob $TARGET_CRONJOB is not running. Triggering it now."
+      # Trigger the CronJob manually
+      job_name="$TARGET_CRONJOB-manual-$(date +%s)"
+      kubectl create job --from=cronjob/$TARGET_CRONJOB $job_name -n $NAMESPACE
+    else
+      echo "CronJob $TARGET_CRONJOB is still running."
+    fi

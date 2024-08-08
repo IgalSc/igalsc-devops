@@ -1,0 +1,16 @@
+gcloud projects get-iam-policy ${project_ID} \
+    --flatten="bindings[].members" \
+    --format='table(bindings.role)' \
+    --filter="bindings.members:gmail-backup-service-account@${project_ID}.iam.gserviceaccount.com"
+
+
+
+gcloud organizations add-iam-policy-binding ${account_ID} \
+  --member="serviceAccount:gmail-backup-service-account@${project_ID}.iam.gserviceaccount.com" \
+  --role="roles/admin.directory.user.readonly"
+
+
+  gcloud organizations add-iam-policy-binding ${account_ID} \
+  --member="serviceAccount:gmail-backup-service-account@${project_ID}.iam.gserviceaccount.com" \
+  --role="roles/gmail.readonly"
+

@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: check-and-trigger-cronjob
+  namespace: prod  # Change to your namespace
+spec:
+  schedule: "*/5 * * * *"  # Adjust the schedule as needed
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: default  # Change to your service account name
+          containers:
+          - name: check-cronjob
+            image: bitnami/kubectl:latest
+            command:
+            - /bin/bash
+            - -c
+            - |
+              /scripts/check_and_trigger_cronjob.sh
+            volumeMounts:
+            - name: script-volume
+              mountPath: /scripts
+          restartPolicy: OnFailure
+          volumes:
+          - name: script-volume
+            configMap:
+              name: check-cronjob-script
+              defaultMode: 0755
