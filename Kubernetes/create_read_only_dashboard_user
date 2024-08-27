@@ -15,6 +15,9 @@ rules:
 - apiGroups: [""]
   resources: ["pods", "namespaces", "configmaps", "pods/log"]
   verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create"]  
 EOF
 #bind the cluster role to the user
 kubectl create clusterrolebinding $user --serviceaccount=kubernetes-dashboard:$user --clusterrole=$user
