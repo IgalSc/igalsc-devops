@@ -1,14 +1,16 @@
 #!/bin/bash
 VPC="your_vpc_id"
+PROFILE="profile_name"
+REGION="your-region"
 
-aws ec2 describe-instances --filters "Name=vpc-id,Values=$VPC"
-aws ec2 describe-subnets --filters "Name=vpc-id,Values=$VPC"
-aws ec2 describe-security-groups --filters "Name=vpc-id,Values=$VPC"
-aws ec2 describe-network-interfaces --filters "Name=vpc-id,Values=$VPC"
-aws ec2 describe-route-tables --filters "Name=vpc-id,Values=$VPC"
-aws ec2 describe-nat-gateways --filter "Name=vpc-id,Values=$VPC"
-aws elb describe-load-balancers --query "LoadBalancerDescriptions[?VPCId=='$VPC']"
-aws elbv2 describe-load-balancers --query "LoadBalancers[?VpcId=='$VPC']"
-aws rds describe-db-instances --query "DBInstances[?DBSubnetGroup.VpcId=='$VPC']"
-aws elasticache describe-cache-clusters --query "CacheClusters[?CacheSubnetGroupName=='$VPC']"
-aws lambda list-functions --query "Functions[?VpcConfig.VpcId=='$VPC']"
+aws ec2 describe-instances --filters "Name=vpc-id,Values=$VPC" --profile $PROFILE --region $REGION
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=$VPC" --profile $PROFILE --region $REGION
+aws ec2 describe-security-groups --filters "Name=vpc-id,Values=$VPC" --profile $PROFILE --region $REGION
+aws ec2 describe-network-interfaces --filters "Name=vpc-id,Values=$VPC" --profile $PROFILE --region $REGION
+aws ec2 describe-route-tables --filters "Name=vpc-id,Values=$VPC" --profile $PROFILE --region $REGION
+aws ec2 describe-nat-gateways --filter "Name=vpc-id,Values=$VPC" --profile $PROFILE --region $REGION
+aws elb describe-load-balancers --query "LoadBalancerDescriptions[?VPCId=='$VPC']" --profile $PROFILE --region $REGION
+aws elbv2 describe-load-balancers --query "LoadBalancers[?VpcId=='$VPC']" --profile $PROFILE --region $REGION
+aws rds describe-db-instances --query "DBInstances[?DBSubnetGroup.VpcId=='$VPC']" --profile $PROFILE --region $REGION
+aws elasticache describe-cache-clusters --query "CacheClusters[?CacheSubnetGroupName=='$VPC']" --profile $PROFILE --region $REGION
+aws lambda list-functions --query "Functions[?VpcConfig.VpcId=='$VPC']" --profile $PROFILE --region $REGION
