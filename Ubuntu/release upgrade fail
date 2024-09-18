@@ -1,7 +1,7 @@
 #If your release upgrade fails with the following error:
 
 sudo do-release-upgrade
-[sudo] password for punknubbins:
+[sudo] password for {$user}:
 Traceback (most recent call last):
   File "/usr/bin/do-release-upgrade", line 11, in <module>
     from UpdateManager.Core.MetaRelease import MetaReleaseCore
