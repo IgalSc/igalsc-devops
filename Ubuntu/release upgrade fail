@@ -1,0 +1,19 @@
+#If your release upgrade fails with the following error:
+
+sudo do-release-upgrade
+[sudo] password for punknubbins:
+Traceback (most recent call last):
+  File "/usr/bin/do-release-upgrade", line 11, in <module>
+    from UpdateManager.Core.MetaRelease import MetaReleaseCore
+  File "/usr/lib/python3/dist-packages/UpdateManager/Core/MetaRelease.py", line 25, in <module>
+    import apt
+  File "/usr/lib/python3/dist-packages/apt/__init__.py", line 23, in <module>
+    import apt_pkg
+ModuleNotFoundError: No module named 'apt_pkg'
+
+#Run these commands in sequence
+
+sudo apt install --reinstall python3 python python3-minimal
+sudo apt --fix-broken install
+sudo apt update && sudo apt upgrade
+sudo do-release-upgrade
