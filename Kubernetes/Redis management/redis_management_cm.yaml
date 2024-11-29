@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-memory-check-script
+  namespace: <namespace>  # Replace with your namespace
+data:
+  memory_check.lua: |
+    local max_memory = 3072 * 1024 * 1024 -- 3072MB in bytes
+    local memory_info = redis.call("info", "memory")
+    local used_memory_bytes = tonumber(memory_info:match("used_memory:(%d+)"))
+    local used_memory_mb = used_memory_bytes / (1024 * 1024)  -- Convert bytes to MB
+
+    if used_memory_bytes > (0.95 * max_memory) then
+        redis.log(redis.LOG_NOTICE, "Flushing expired keys as memory usage is high")
+        
+        -- Iterate over all keys and delete them
+        local keys = redis.call("keys", "*")
+        for i = 1, #keys do
+            redis.call("del", keys[i])
+        end
+    end
+    
+    return string.format("Used memory: %.2f MB", used_memory_mb)

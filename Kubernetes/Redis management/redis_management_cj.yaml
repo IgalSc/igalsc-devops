@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: redis-memory-check
+  namespace: <namespace> # Namespace where the Redis instance is running
+spec:
+  schedule: "* */6 * * *"  # Every 6 hours
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: redis-memory-check
+            image: redis:7.2  # Use the Redis image
+            command:
+            - /bin/sh
+            - -c
+            - |
+              redis-cli -h redis-service -p 6379 --eval /scripts/memory_check.lua
+            volumeMounts:
+            - name: script-volume
+              mountPath: /scripts  # Path where the Lua script will be mounted
+          volumes:
+          - name: script-volume
+            configMap:
+              name: redis-memory-check-script  # Name of the ConfigMap
+          restartPolicy: OnFailure
