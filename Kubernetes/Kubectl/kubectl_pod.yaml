@@ -1,0 +1,40 @@
+# Description: 
+##  This file is used to create a pod in the kube-system namespace that has the kubectl CLI installed.
+##  This pod can be used to run kubectl commands in the Kubernetes cluster.
+##  The reason to include it is the fact that I prefer using Kubernetes Dahsboard for watching/managing resources in the cluster.
+##  However, sometimes I need to run some commands that are not available in the dashboard.
+##  This pod is a quick way to run kubectl commands in the cluster.
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kubectl-console-sa
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kubectl-console-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: kubectl-console-sa
+  namespace: kube-system
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubectl-console
+  namespace: kube-system
+  labels:
+    app: kubectl-console
+spec:
+  serviceAccountName: kubectl-console-sa
+  containers:
+  - name: kubectl
+    image: bitnami/kubectl:latest
+    command: ["/bin/sh"]
+    stdin: true
+    tty: true

@@ -39,18 +39,21 @@ def get_last_invocation(function_name):
         streams = streams_response.get('logStreams', [])
         if streams and 'lastEventTimestamp' in streams[0]:
             timestamp = streams[0]['lastEventTimestamp']
-            return datetime.fromtimestamp(timestamp / 1000, timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
+            return datetime.fromtimestamp(timestamp / 1000, timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'), timestamp
         else:
-            return 'No invocations found'
+            return 'No invocations found', 0
     except logs_client.exceptions.ResourceNotFoundException:
-        return 'No logs found'
+        return 'No logs found', 0
 
 # Collect results
 data = []
 for fn in functions:
     name = fn['FunctionName']
-    last_invoked = get_last_invocation(name)
-    data.append([name, last_invoked])
+    last_invoked, timestamp = get_last_invocation(name)
+    data.append([name, last_invoked, timestamp])
 
-# Print table
-print(tabulate(data, headers=['Lambda Function', 'Last Invoked'], tablefmt='github'))
+# Sort by last invocation timestamp, descending
+data.sort(key=lambda x: x[2], reverse=True)
+
+# Print table without timestamp column
+print(tabulate([[row[0], row[1]] for row in data], headers=['Lambda Function', 'Last Invoked'], tablefmt='github'))
