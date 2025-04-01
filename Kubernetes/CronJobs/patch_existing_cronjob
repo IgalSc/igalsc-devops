@@ -1,0 +1,31 @@
+# Patch existing cronjob
+
+# get cronjobs in the namespace
+kubectl -n $NAMESPACE get cronjobs
+
+# get cronjob details
+kubectl -n $NAMESPACE get cronjob my-cronjob -o yaml
+
+# get cronjob container name
+kubectl -n $NAMESPACE get cronjob my-cronjob -o jsonpath='{.spec.jobTemplate.spec.template.spec.containers[*].name}'
+
+# get cronjob container image
+kubectl -n $NAMESPACE get cronjob my-cronjob -o jsonpath='{.spec.jobTemplate.spec.template.spec.containers[*].image}'
+
+# patch cronjob
+kubectl -n $NAMESPACE patch cronjob my-cronjob -p '{"spec":{"jobTemplate":{"spec":{"template":{"spec":{"containers":[{"name":"my-cronjob","image":"nginx:1.19.0"}]}}}}}'
+
+# verify cronjob patch
+kubectl -n $NAMESPACE get cronjob my-cronjob -o jsonpath='{.spec.jobTemplate.spec.template.spec.containers[*].image}'
+
+# get cronjob status (suspended or not)
+kubectl -n $NAMESPACE get cronjob my-cronjob -o jsonpath='{.spec.suspend}'
+
+# suspend cronjob
+kubectl -n $NAMESPACE patch cronjob my-cronjob -p '{"spec":{"suspend":true}}'
+
+# un-suspend cronjob
+kubectl -n $NAMESPACE patch cronjob my-cronjob -p '{"spec":{"suspend":false}}'
+
+# update job schedule
+kubectl -n $NAMESPACE patch cronjob my-cronjob -p '{"spec":{"schedule":"*/5 * * * *"}}'
