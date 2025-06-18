@@ -2,7 +2,7 @@
 
 eksctl create nodegroup \
     --cluster {$cluster_name} \
-    --name nodes-1c \
+    --name nodes-2a \
     --node-type m5a.xlarge \
     --nodes 1 \
     --nodes-min 1 \

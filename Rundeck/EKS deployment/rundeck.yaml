@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rundeck
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rundeck
+  template:
+    metadata:
+      labels:
+        app: rundeck
+    spec:
+      serviceAccountName: rundeck-sa
+      containers:
+      - name: rundeck
+        image: <your-account-id>.dkr.ecr.<region>.amazonaws.com/rundeck-custom:latest
+        ports:
+        - containerPort: 4440
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        env:
+        - name: RUNDECK_GRAILS_URL
+          value: "http://rundeck.yourdomain.com"
+        - name: RUNDECK_DATABASE_DRIVER
+          value: org.postgresql.Driver
+        - name: RUNDECK_DATABASE_URL
+          value: "jdbc:postgresql://<rds-endpoint>:5432/rundeck"
+        - name: RUNDECK_DATABASE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: rundeck-db-secret
+              key: username
+        - name: RUNDECK_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: rundeck-db-secret
+              key: password
+        volumeMounts:
+        - mountPath: /home/rundeck/scripts
+          name: script-volume
+      volumes:
+      - name: script-volume
+        emptyDir: {}
