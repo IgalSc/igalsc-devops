@@ -28,7 +28,7 @@ awscliv2 eks update-cluster-config \
 eksctl scale nodegroup \
     --cluster={$cluster_name} \
     --nodes=1 \
-    --name=nodes-1a \
+    --name=nodes-1c-new \
     --nodes-min=1 \
     --nodes-max=5 \
     --wait

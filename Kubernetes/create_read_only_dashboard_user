@@ -1,6 +1,6 @@
 #!/bin/bash
 #set the actual username needed to be used
-user="user-name" 
+user="readonly-dashboard-user" 
 #create user
 kubectl create sa $user -n kubernetes-dashboard
 #create cluster role
