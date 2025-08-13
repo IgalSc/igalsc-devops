@@ -17,5 +17,5 @@ do
              --region $region \
              --profile $profile \
              --log-group-name "$log_group" \
-             --retention-in-days 30
+             --retention-in-days 3
 done
