@@ -1,0 +1,3 @@
+kubectl get pods --all-namespaces | grep Terminating
+
+kubectl get pods --all-namespaces | awk '/Terminating/{print $1 " " $2}' | while read -r namespace pod; do kubectl delete pod "$pod" -n "$namespace" --grace-period=0 --force;done
