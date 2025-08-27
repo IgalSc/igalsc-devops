@@ -1,0 +1,1 @@
+aws eks update-kubeconfig --region us-east-1 --name $CLUSTER_NAME --profile $AWS_PROFILE
