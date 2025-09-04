@@ -1,0 +1,12 @@
+SELECT 
+    DIGEST_TEXT, 
+    COUNT_STAR, 
+    SUM_ROWS_EXAMINED, 
+    SUM_CREATED_TMP_TABLES,
+    SUM_SORT_MERGE_PASSES,
+    SUM_NO_INDEX_USED
+FROM 
+    performance_schema.events_statements_summary_by_digest
+ORDER BY 
+    SUM_ROWS_EXAMINED DESC
+LIMIT 10;
