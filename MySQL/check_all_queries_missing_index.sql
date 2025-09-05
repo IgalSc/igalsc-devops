@@ -1,0 +1,12 @@
+SELECT 
+  DIGEST_TEXT, 
+  COUNT_STAR, 
+  SUM_ROWS_EXAMINED, 
+  SUM_NO_INDEX_USED
+FROM 
+  performance_schema.events_statements_summary_by_digest
+WHERE 
+  SUM_NO_INDEX_USED > 0
+ORDER BY 
+  SUM_ROWS_EXAMINED DESC
+LIMIT 10;
