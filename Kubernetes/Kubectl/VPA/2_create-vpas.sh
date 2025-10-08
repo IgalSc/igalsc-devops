@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Namespaces to monitor
-NAMESPACES=("staging" "zone-system" "uat")
+NAMESPACES=("prod" "zone-system")
 
 for namespace in "${NAMESPACES[@]}"; do
   echo "Creating VPAs for namespace: $namespace"
