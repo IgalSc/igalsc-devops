@@ -1,0 +1,1290 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false,
+            "minWidth": 50
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Namespace"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 90
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Kind"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 90
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Workload"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 130
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU Avg"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "custom.width",
+                "value": 70
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#80CBC4",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU P95"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "custom.width",
+                "value": 70
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#80CBC4",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU Lower"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "custom.width",
+                "value": 75
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#FFCC80",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU VPA"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "custom.width",
+                "value": 70
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "orange",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU Upper"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "custom.width",
+                "value": 75
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#FFCC80",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Mem Avg"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "decimals",
+                "value": 0
+              },
+              {
+                "id": "custom.width",
+                "value": 80
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#80CBC4",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Mem P95"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "decimals",
+                "value": 0
+              },
+              {
+                "id": "custom.width",
+                "value": 80
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#80CBC4",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Mem Lower"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "decimals",
+                "value": 0
+              },
+              {
+                "id": "custom.width",
+                "value": 85
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#EF9A9A",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Mem VPA"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "decimals",
+                "value": 0
+              },
+              {
+                "id": "custom.width",
+                "value": 80
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "red",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Mem Upper"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "decimals",
+                "value": 0
+              },
+              {
+                "id": "custom.width",
+                "value": 85
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#EF9A9A",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Namespace"
+          }
+        ]
+      },
+      "pluginVersion": "10.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_kind, target_name) (\n  kube_customresource_vpa_containerrecommendations_target{namespace=~\"$namespace\", resource=\"cpu\"}\n)",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "cpu_vpa"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_kind, target_name) (\n  kube_customresource_vpa_containerrecommendations_lowerbound{namespace=~\"$namespace\", resource=\"cpu\"}\n)",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "cpu_lower"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_kind, target_name) (\n  kube_customresource_vpa_containerrecommendations_upperbound{namespace=~\"$namespace\", resource=\"cpu\"}\n)",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "cpu_upper"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_kind, target_name) (\n  kube_customresource_vpa_containerrecommendations_target{namespace=~\"$namespace\", resource=\"memory\"}\n)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "mem_vpa"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_kind, target_name) (\n  kube_customresource_vpa_containerrecommendations_lowerbound{namespace=~\"$namespace\", resource=\"memory\"}\n)",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "mem_lower"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_kind, target_name) (\n  kube_customresource_vpa_containerrecommendations_upperbound{namespace=~\"$namespace\", resource=\"memory\"}\n)",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "mem_upper"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_name) (\n  label_replace(\n    avg by (namespace, workload) (\n      rate(container_cpu_usage_seconds_total{namespace=~\"$namespace\", image!=\"\", container!=\"POD\", container!=\"\"}[$__range])\n      * on (namespace, pod) group_left(workload)\n      (\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"ReplicaSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)-[a-z0-9]+$\"\n        )\n        or\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"StatefulSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n        )\n        or\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"DaemonSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n        )\n      )\n    ),\n    \"target_name\", \"$1\", \"workload\", \"(.+)\"\n  )\n)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "cpu_avg"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_name) (\n  label_replace(\n    quantile by (namespace, workload) (0.95,\n      rate(container_cpu_usage_seconds_total{namespace=~\"$namespace\", image!=\"\", container!=\"POD\", container!=\"\"}[$__range])\n      * on (namespace, pod) group_left(workload)\n      (\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"ReplicaSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)-[a-z0-9]+$\"\n        )\n        or\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"StatefulSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n        )\n        or\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"DaemonSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n        )\n      )\n    ),\n    \"target_name\", \"$1\", \"workload\", \"(.+)\"\n  )\n)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "cpu_p95"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_name) (\n  label_replace(\n    avg by (namespace, workload) (\n      avg_over_time(container_memory_working_set_bytes{namespace=~\"$namespace\", image!=\"\", container!=\"POD\", container!=\"\"}[$__range])\n      * on (namespace, pod) group_left(workload)\n      (\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"ReplicaSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)-[a-z0-9]+$\"\n        )\n        or\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"StatefulSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n        )\n        or\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"DaemonSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n        )\n      )\n    ),\n    \"target_name\", \"$1\", \"workload\", \"(.+)\"\n  )\n)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "mem_avg"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (namespace, target_name) (\n  label_replace(\n    quantile by (namespace, workload) (0.95,\n      max_over_time(container_memory_working_set_bytes{namespace=~\"$namespace\", image!=\"\", container!=\"POD\", container!=\"\"}[$__range])\n      * on (namespace, pod) group_left(workload)\n      (\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"ReplicaSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)-[a-z0-9]+$\"\n        )\n        or\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"StatefulSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n        )\n        or\n        label_replace(\n          kube_pod_owner{namespace=~\"$namespace\", owner_kind=\"DaemonSet\"},\n          \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n        )\n      )\n    ),\n    \"target_name\", \"$1\", \"workload\", \"(.+)\"\n  )\n)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "mem_p95"
+        }
+      ],
+      "title": "VPA Recommendations Summary",
+      "transformations": [
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "indexByName": {
+              "namespace": 0,
+              "target_kind": 1,
+              "target_name": 2,
+              "Value #cpu_avg": 3,
+              "Value #cpu_p95": 4,
+              "Value #cpu_lower": 5,
+              "Value #cpu_vpa": 6,
+              "Value #cpu_upper": 7,
+              "Value #mem_avg": 8,
+              "Value #mem_p95": 9,
+              "Value #mem_lower": 10,
+              "Value #mem_vpa": 11,
+              "Value #mem_upper": 12
+            },
+            "renameByName": {
+              "Value #cpu_avg": "CPU Avg",
+              "Value #cpu_p95": "CPU P95",
+              "Value #cpu_lower": "CPU Lower",
+              "Value #cpu_vpa": "CPU VPA",
+              "Value #cpu_upper": "CPU Upper",
+              "Value #mem_avg": "Mem Avg",
+              "Value #mem_p95": "Mem P95",
+              "Value #mem_lower": "Mem Lower",
+              "Value #mem_vpa": "Mem VPA",
+              "Value #mem_upper": "Mem Upper",
+              "namespace": "Namespace",
+              "target_kind": "Kind",
+              "target_name": "Workload"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "CPU Cores",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VPA Target"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VPA Lower"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FFCC80",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    5,
+                    5
+                  ],
+                  "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VPA Upper"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FFCC80",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    5,
+                    5
+                  ],
+                  "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P95"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Average"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "avg(\n  rate(container_cpu_usage_seconds_total{namespace=\"$workload_namespace\", image!=\"\", container!=\"POD\", container!=\"\"}[5m])\n  * on (namespace, pod) group_left(workload)\n  (\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"ReplicaSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)-[a-z0-9]+$\"\n    )\n    or\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"StatefulSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n    )\n    or\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"DaemonSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n    )\n  )\n  and on (workload) (label_replace(vector(1), \"workload\", \"$workload\", \"\", \"\"))\n)",
+          "legendFormat": "Average",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "quantile(0.95,\n  rate(container_cpu_usage_seconds_total{namespace=\"$workload_namespace\", image!=\"\", container!=\"POD\", container!=\"\"}[5m])\n  * on (namespace, pod) group_left(workload)\n  (\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"ReplicaSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)-[a-z0-9]+$\"\n    )\n    or\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"StatefulSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n    )\n    or\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"DaemonSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n    )\n  )\n  and on (workload) (label_replace(vector(1), \"workload\", \"$workload\", \"\", \"\"))\n)",
+          "hide": false,
+          "legendFormat": "P95",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "sum(\n  kube_customresource_vpa_containerrecommendations_target{namespace=\"$workload_namespace\", target_name=\"$workload\", resource=\"cpu\"}\n)",
+          "hide": false,
+          "legendFormat": "VPA Target",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "sum(\n  kube_customresource_vpa_containerrecommendations_lowerbound{namespace=\"$workload_namespace\", target_name=\"$workload\", resource=\"cpu\"}\n)",
+          "hide": false,
+          "legendFormat": "VPA Lower",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "sum(\n  kube_customresource_vpa_containerrecommendations_upperbound{namespace=\"$workload_namespace\", target_name=\"$workload\", resource=\"cpu\"}\n)",
+          "hide": false,
+          "legendFormat": "VPA Upper",
+          "range": true,
+          "refId": "E"
+        }
+      ],
+      "title": "CPU: $workload_namespace / $workload",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Memory",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VPA Target"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VPA Lower"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#EF9A9A",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    5,
+                    5
+                  ],
+                  "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VPA Upper"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#EF9A9A",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    5,
+                    5
+                  ],
+                  "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P95"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Average"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "avg(\n  container_memory_working_set_bytes{namespace=\"$workload_namespace\", image!=\"\", container!=\"POD\", container!=\"\"}\n  * on (namespace, pod) group_left(workload)\n  (\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"ReplicaSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)-[a-z0-9]+$\"\n    )\n    or\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"StatefulSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n    )\n    or\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"DaemonSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n    )\n  )\n  and on (workload) (label_replace(vector(1), \"workload\", \"$workload\", \"\", \"\"))\n)",
+          "legendFormat": "Average",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "quantile(0.95,\n  container_memory_working_set_bytes{namespace=\"$workload_namespace\", image!=\"\", container!=\"POD\", container!=\"\"}\n  * on (namespace, pod) group_left(workload)\n  (\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"ReplicaSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)-[a-z0-9]+$\"\n    )\n    or\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"StatefulSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n    )\n    or\n    label_replace(\n      kube_pod_owner{namespace=\"$workload_namespace\", owner_kind=\"DaemonSet\"},\n      \"workload\", \"$1\", \"owner_name\", \"(.+)\"\n    )\n  )\n  and on (workload) (label_replace(vector(1), \"workload\", \"$workload\", \"\", \"\"))\n)",
+          "hide": false,
+          "legendFormat": "P95",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "sum(\n  kube_customresource_vpa_containerrecommendations_target{namespace=\"$workload_namespace\", target_name=\"$workload\", resource=\"memory\"}\n)",
+          "hide": false,
+          "legendFormat": "VPA Target",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "sum(\n  kube_customresource_vpa_containerrecommendations_lowerbound{namespace=\"$workload_namespace\", target_name=\"$workload\", resource=\"memory\"}\n)",
+          "hide": false,
+          "legendFormat": "VPA Lower",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "sum(\n  kube_customresource_vpa_containerrecommendations_upperbound{namespace=\"$workload_namespace\", target_name=\"$workload\", resource=\"memory\"}\n)",
+          "hide": false,
+          "legendFormat": "VPA Upper",
+          "range": true,
+          "refId": "E"
+        }
+      ],
+      "title": "Memory: $workload_namespace / $workload",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "tags": [
+    "vpa",
+    "kubernetes",
+    "cost-optimization"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "allValue": ".*",
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(kube_customresource_vpa_containerrecommendations_target, namespace)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Namespace",
+        "multi": true,
+        "name": "namespace",
+        "options": [],
+        "query": {
+          "query": "label_values(kube_customresource_vpa_containerrecommendations_target, namespace)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(kube_customresource_vpa_containerrecommendations_target{namespace=~\"$namespace\"}, namespace)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Workload Namespace",
+        "multi": false,
+        "name": "workload_namespace",
+        "options": [],
+        "query": {
+          "query": "label_values(kube_customresource_vpa_containerrecommendations_target{namespace=~\"$namespace\"}, namespace)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(kube_customresource_vpa_containerrecommendations_target{namespace=\"$workload_namespace\"}, target_name)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Workload",
+        "multi": false,
+        "name": "workload",
+        "options": [],
+        "query": {
+          "query": "label_values(kube_customresource_vpa_containerrecommendations_target{namespace=\"$workload_namespace\"}, target_name)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "VPA Recommendations Dashboard",
+  "uid": "vpa-recommendations-v4",
+  "version": 1,
+  "weekStart": ""
+}
