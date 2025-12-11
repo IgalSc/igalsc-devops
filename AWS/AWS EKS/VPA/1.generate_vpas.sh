@@ -406,11 +406,12 @@ EOF
 # Verify the exporter is running
 # Check pod status
 kubectl get pods -n ${PROM_NS} -l app.kubernetes.io/name=kube-state-metrics-vpa
-
+sleep 30
 # Check logs for errors
 kubectl logs -n ${PROM_NS} -l app.kubernetes.io/name=kube-state-metrics-vpa
 
 # Test metrics endpoint
+sleep 15
 kubectl port-forward -n ${PROM_NS} svc/kube-state-metrics-vpa 8080:8080 &
 sleep 2
 curl -s localhost:8080/metrics | grep -c kube_customresource_vpa
