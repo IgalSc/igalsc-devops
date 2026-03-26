@@ -1,0 +1,25 @@
+kubectl describe nodes | egrep -A3 "Allocated resources|cpu |memory"
+
+kubectl get pods -A -o jsonpath='{range .items[*]}{range .spec.containers[*]}{.resources.requests.memory}{"\n"}{end}{end}' \
+| sed 's/<none>/0/g' \
+| awk '
+function toMi(x){
+  if (x ~ /Gi$/) {sub(/Gi/,"",x); return x*1024}
+  if (x ~ /G$/)  {sub(/G/,"",x);  return x*1000}
+  if (x ~ /Mi$/) {sub(/Mi/,"",x); return x}
+  if (x ~ /M$/)  {sub(/M/,"",x);  return x}
+  if (x ~ /Ki$/) {sub(/Ki/,"",x); return x/1024}
+  return x/1024/1024
+}
+{sum += toMi($1)}
+END {printf "Total requested memory: %.0f Mi (%.2f Gi)\n", sum, sum/1024}'
+
+kubectl get pods -A -o jsonpath='{range .items[*]}{range .spec.containers[*]}{.resources.requests.cpu}{"\n"}{end}{end}' \
+| sed 's/<none>/0/g' \
+| awk '
+function toMillicores(x){
+  if (x ~ /m$/) {sub(/m/,"",x); return x}
+  return x*1000
+}
+{sum += toMillicores($1)}
+END {printf "Total requested CPU: %.0f m (%.2f cores)\n", sum, sum/1000}'
